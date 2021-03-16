@@ -1,8 +1,8 @@
 # To generate a new docker image with this dockerfile:
-# $ docker build . -t image:tag
+# $ docker build . -t multi-compilers:<tag>
 
 FROM debian:buster
-MAINTAINER hugo.rodde@me.com
+LABEL maintainer "Hugo Rodde <hugo.rodde@me.com>"
 
 RUN apt-get update && apt-get -y upgrade
 
