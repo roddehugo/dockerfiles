@@ -11,8 +11,7 @@ RUN apt-get -y install \
     build-essential \
     tar bzip2 \
     git wget \
-    python3 \
-    libsdl2-dev
+    python3
 
 # Install Clang toolchain
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
