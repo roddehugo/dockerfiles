@@ -7,7 +7,8 @@ LABEL maintainer "Hugo Rodde <hugo.rodde@me.com>"
 RUN apt-get update && apt-get install -y --no-install-recommends \
         software-properties-common gnupg2 \
         gcc g++ libc6-dev make cmake \
-        tar wget bzip2 git python3 \
+        tar bzip2 zip wget curl git \
+        python3 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Clang toolchain
