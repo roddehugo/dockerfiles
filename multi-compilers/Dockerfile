@@ -4,11 +4,14 @@
 FROM debian:buster-slim
 LABEL maintainer "Hugo Rodde <hugo.rodde@me.com>"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         software-properties-common gnupg2 \
         gcc g++ libc6-dev make cmake \
         tar bzip2 zip wget curl git \
         python3 \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Clang toolchain
@@ -16,6 +19,7 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - \
     && apt-add-repository "deb http://apt.llvm.org/buster/ llvm-toolchain-buster main" \
     && apt-get update && apt-get install -y --no-install-recommends \
         clang libclang-dev \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Install ARM GCC toolchain
